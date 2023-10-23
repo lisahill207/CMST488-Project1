@@ -1,5 +1,12 @@
 // TODO: Initialize variables (set port variable, and import http, httpStatus, fs, path modules)
+const port = 8000,
+  http = require("http"),
+  httpStatus = require("http-status-codes"),
+  fs = require(fs);
 
+const routeMap = {
+  "/": "views/index.html"
+};
 // Import resources for API
 const resources = require("./models/resources");
 
