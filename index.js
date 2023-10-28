@@ -1,8 +1,9 @@
 // ✅ TODO: Initialize variables (set port variable, and import http, httpStatus, fs, path modules)
 const port = 8000,
-  http = require("http"),
-  httpStatus = require("http-status-codes"),
-  fs = require(fs);
+  http = require('http'),
+  httpStatus = require('http-status'),
+  fs = require('fs'),
+  path = require('path');
 
 const routeMap = {
   "/": "views/index.html"
@@ -16,7 +17,8 @@ const sendErrorResponse = (req, res) => {
     "Content-Type": "text/html",
   });
   // ✅ TODO: Implement res.end with error message in h1 tags with text "Resource not found"
-  res.end("<h1>Resource not found</h1>");
+  let responseMessage = "<h1>Resource not found.</h1>";
+  res.end(responseMessage);
 };
 
 // Create Web Server
