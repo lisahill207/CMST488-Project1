@@ -3,7 +3,8 @@ const port = 8000,
   http = require('http'),
   httpStatus = require('http-status'),
   fs = require('fs'),
-  path = require('path');
+  path = require('path')
+  const app = express();
 
 const routeMap = {
   "/": "views/index.html"
@@ -17,15 +18,15 @@ const sendErrorResponse = (req, res) => {
     "Content-Type": "text/html",
   });
   // ✅ TODO: Implement res.end with error message in h1 tags with text "Resource not found"
-  let responseMessage = "<h1>Resource not found.</h1>";
-  res.end(responseMessage);
+  res.end("<h1>Resource not found</h1>");
 };
 
 // Create Web Server
 const server = http.createServer(function (req, res) {
   // Implement healthcheck URL at /healthcheck
   if (req.url === "/healthcheck") {
-    // ❓TODO: Implement healthcheck code here
+        // ✅TODO: Implement healthcheck code here
+    app.use('/healthcheck', require('./routes/healthchecker'));
   }
 
   // Implement static file system and serve /views/index.html
