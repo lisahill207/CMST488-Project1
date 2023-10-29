@@ -40,19 +40,16 @@ const server = http.createServer((req, res) => {
       // ✅TODO: Implement res.end to send data
       res.end(data);
     });
-  } else {
-    sendErrorResponse(res);
   }
-
   // Add a basic api to serve resources.js
-  /*else if (req.url == "/api/resources") {
-    // ❓TODO: Implement res.writeHead to send httpStatus.OK with JSON content type
+  else if (req.url == "/api/resources") {
+    //✅TODO: Implement res.writeHead to send httpStatus.OK with JSON content type
     res.writeHead(200, 'Content-Type": "application/json')
-    // ❓TODO: Implement res.end and use JSON.stringify to return resources
-    res.end(JSON.stringify(resources.js))
+    // ✅TODO: Implement res.end and use JSON.stringify to return resources
+    res.end(JSON.stringify(resources));
   }else {
     sendErrorResponse(res);
-  }*/
+  }
 });
 server.listen(port); // listen for any incoming requests;
 console.log(`The server has started and is listening on port number: ${port}`);
