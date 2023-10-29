@@ -1,12 +1,12 @@
 // ✅ TODO: Initialize variables (set port variable, and import http, httpStatus, fs, path modules)
-const port = 8000;
-const http = require('http'),
+const port = 8000,
+  http = require('http'),
   httpStatus = require('http-status'),
   fs = require('fs'),
-  path = require('path');
-
-const express = require('express'),
-  app = express();
+  path = require('path'),
+  express = require('express'),
+  app = express(),
+  router = express.Router();
 
 // Import resources for API
 const resources = require("./models/resources");
@@ -26,9 +26,10 @@ const server = http.createServer((req, res) => {
     });
 // Implement healthcheck URL at /healthcheck
   if (req.url === "/healthcheck") {
-// ❓TODO: Implement healthcheck code here
-      app.use('/healthcheck', require('./healthchecker.js'));
-  }
+// ✅TODO: Implement healthcheck code here
+      const uptime = process.uptime();
+      res.write(`Your uptime is ${uptime} seconds`);
+    }
   // Implement static file system and serve /views/index.html
   // ** OPTIONAL: Setup dynamic reading and serving of other static files (Hint: see lesson 6.1 Wexxler)
   else if (req.url === "/") {
