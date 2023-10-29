@@ -4,9 +4,7 @@ const port = 8000,
   httpStatus = require('http-status'),
   fs = require('fs'),
   path = require('path'),
-  express = require('express'),
-  app = express(),
-  router = express.Router();
+  express = require('express');
 
 // Import resources for API
 const resources = require("./models/resources");
